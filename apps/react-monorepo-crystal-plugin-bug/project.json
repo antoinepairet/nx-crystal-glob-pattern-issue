@@ -1,0 +1,56 @@
+{
+  "name": "react-monorepo-crystal-plugin-bug",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-monorepo-crystal-plugin-bug/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/rspack:rspack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "web",
+        "outputPath": "dist/apps/react-monorepo-crystal-plugin-bug",
+        "index": "apps/react-monorepo-crystal-plugin-bug/src/index.html",
+        "main": "apps/react-monorepo-crystal-plugin-bug/src/main.tsx",
+        "tsConfig": "apps/react-monorepo-crystal-plugin-bug/tsconfig.app.json",
+        "rspackConfig": "apps/react-monorepo-crystal-plugin-bug/rspack.config.js",
+        "assets": [
+          "apps/react-monorepo-crystal-plugin-bug/src/favicon.ico",
+          "apps/react-monorepo-crystal-plugin-bug/src/assets"
+        ]
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production",
+          "optimization": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/rspack:dev-server",
+      "options": {
+        "buildTarget": "react-monorepo-crystal-plugin-bug:build:development"
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "buildTarget": "react-monorepo-crystal-plugin-bug:build:production"
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "react-monorepo-crystal-plugin-bug:build",
+        "spa": true
+      }
+    }
+  }
+}

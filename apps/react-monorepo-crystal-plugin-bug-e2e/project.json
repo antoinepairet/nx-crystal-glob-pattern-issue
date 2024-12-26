@@ -1,0 +1,9 @@
+{
+  "name": "react-monorepo-crystal-plugin-bug-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/react-monorepo-crystal-plugin-bug-e2e/src",
+  "implicitDependencies": ["react-monorepo-crystal-plugin-bug"],
+  "// targets": "to see all targets run: nx show project react-monorepo-crystal-plugin-bug-e2e --web",
+  "targets": {}
+}
