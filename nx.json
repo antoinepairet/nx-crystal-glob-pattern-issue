@@ -33,7 +33,8 @@
       "options": {
         "targetName": "test"
       }
-    }
+    },
+    "./plugin-with-bad-glob-pattern.ts"
   ],
   "targetDefaults": {
     "e2e-ci--**/*": {
